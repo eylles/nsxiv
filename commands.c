@@ -82,6 +82,15 @@ bool cg_switch_mode(arg_t _)
 	return true;
 }
 
+bool cg_pick_quit(arg_t _)
+{
+	if (options->to_stdout) {
+		printf("%s%c", files[fileidx].name, options->using_null ? '\0' : '\n');
+		exit(EXIT_SUCCESS);
+	}
+	return None;
+}
+
 bool cg_toggle_fullscreen(arg_t _)
 {
 	win_toggle_fullscreen(&win);
